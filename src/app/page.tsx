@@ -8,6 +8,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 // import { Icons } from "next/dist/lib/metadata/types/metadata-types";
 
 export default function FarmerPortal() {
+  const [farmName, setFarmName] = useState("");
   const [produceName, setProduceName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
@@ -49,6 +50,7 @@ export default function FarmerPortal() {
         location,
         image: preview, 
         timestamp: serverTimestamp(),
+        farmName, 
       });
 
       alert("Produce data saved successfully!");
@@ -79,6 +81,17 @@ export default function FarmerPortal() {
       <section style={styles.uploadSection}>
         <h2 style={styles.sectionTitle}>Upload Your Produce</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
+
+        <div style={styles.formGroup}>
+            <label>Farm Name</label>
+            <input
+              type="text"
+              value={farmName}
+              onChange={(e) => setFarmName(e.target.value)}
+              style={styles.input}
+              required
+            />
+          </div>
           <div style={styles.formGroup}>
             <label>Produce Name</label>
             <input
@@ -90,7 +103,7 @@ export default function FarmerPortal() {
             />
           </div>
           <div style={styles.formGroup}>
-            <label>Quantity</label>
+            <label>Quantity (in kg)</label>
             <input
               type="text"
               value={quantity}
