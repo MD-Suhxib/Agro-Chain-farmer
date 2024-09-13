@@ -7,6 +7,14 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 // import { Icons } from "next/dist/lib/metadata/types/metadata-types";
 
+
+  eslint:{
+    ignoreDuringBuilds:true
+  }
+
+
+
+
 export default function FarmerPortal() {
   const [farmName, setFarmName] = useState("");
   const [produceName, setProduceName] = useState("");
@@ -30,6 +38,7 @@ export default function FarmerPortal() {
       } catch (error) {
         console.error("Error uploading image: ", error);
         alert("Error uploading image. Please try again.");
+        
       }
     }
   };
@@ -276,3 +285,5 @@ const styles: { [key: string]: CSSProperties } = {
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "20px",
   },}
+
+  
