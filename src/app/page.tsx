@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { db, storage } from './firebase'; 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+// import { Icons } from "next/dist/lib/metadata/types/metadata-types";
 
 export default function FarmerPortal() {
   const [produceName, setProduceName] = useState("");
